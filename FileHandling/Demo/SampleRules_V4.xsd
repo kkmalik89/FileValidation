@@ -1,0 +1,54 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RULES">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FILE_DEFINITION_RULES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="FILE_TYPE"/>
+              <xs:element type="xs:string" name="DELIMITER"/>
+              <xs:element type="xs:string" name="FILE_HEADER_AVAILABLE"/>
+              <xs:element type="xs:string" name="FILE_HEADER"/>
+              <xs:element name="COLUMN_LIST">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="COLUMN" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="NAME"/>
+                          <xs:element type="xs:string" name="EXPECTED_DATA_TYPE"/>
+                          <xs:element type="xs:string" name="MIN_LENGTH" minOccurs="0"/>
+                          <xs:element type="xs:string" name="MAX_LENGTH" minOccurs="0"/>
+                          <xs:element type="xs:string" name="EXPECTED_PRECISION" minOccurs="0"/>
+                          <xs:element type="xs:byte" name="EXPECTED_SCALE" minOccurs="0"/>
+                          <xs:element type="xs:string" name="EXPECTED_FORMAT" minOccurs="0"/>
+                          <xs:element type="xs:string" name="NULLABLE"/>
+                          <xs:element name="ALLOWED_LOV">
+                            <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="VALUE" maxOccurs="unbounded" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="RANGE" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="MIN_VALUE"/>
+                                <xs:element type="xs:string" name="MAX_VALUE"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="IS_PK"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
